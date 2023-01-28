@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 
 const DarkModeToggle = () => {
   // check if dark mode is enabled from user's browser
@@ -6,15 +6,15 @@ const DarkModeToggle = () => {
 
   const [darkMode, setDarkMode] = useState(isDarkMode);
 
-  const handleModeToggle = () => {
-    setDarkMode(!darkMode);
+  const handleModeToggle = useCallback(() => {
+    setDarkMode(prev => !prev);
     if (darkMode) {
       document.documentElement.classList.remove("dark");
     } else {
       document.documentElement.classList.add("dark");
     }
     navigator?.vibrate(100);
-  };
+  }, [darkMode]);
 
   return (
     <button className="ml-auto mr-2 hover:animate-pulse sm:ml-0" onClick={handleModeToggle}>
