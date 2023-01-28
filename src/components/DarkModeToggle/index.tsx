@@ -13,13 +13,11 @@ const DarkModeToggle = () => {
     } else {
       document.documentElement.classList.add("dark");
     }
+    navigator?.vibrate(100);
   };
 
   return (
-    <button
-      className="bg-grey-light hover:bg-grey text-grey-darkest inline-flex items-center rounded py-2 px-4 font-bold"
-      onClick={handleModeToggle}
-    >
+    <button className="ml-auto mr-2 hover:animate-pulse sm:ml-0" onClick={handleModeToggle}>
       {darkMode ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -27,8 +25,10 @@ const DarkModeToggle = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="h-6 w-6 stroke-white"
+          className="h-6 w-6 stroke-zinc-600 transition duration-100 ease-in-out hover:scale-125 dark:stroke-white"
+          role="img"
         >
+          <title>Toggle button to swicth to light mode</title>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -42,8 +42,10 @@ const DarkModeToggle = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="h-6 w-6 stroke-white"
+          className="h-6 w-6 stroke-zinc-600 transition duration-100 ease-in-out hover:scale-125 dark:stroke-white"
+          role="img"
         >
+          <title>Toggle button to swicth to dark mode</title>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

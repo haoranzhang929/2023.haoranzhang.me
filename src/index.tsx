@@ -11,11 +11,9 @@ if (container) {
   const root = createRoot(container);
 
   root.render(
-    <div className="h-screen w-screen">
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   );
 }
 
