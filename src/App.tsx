@@ -1,5 +1,13 @@
+import Header from "./components/Header";
+import Router from "./router";
+
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div className="h-screen w-screen">
+      <Header />
+      <Router />
+    </div>
+  );
 };
 
 export default App;
