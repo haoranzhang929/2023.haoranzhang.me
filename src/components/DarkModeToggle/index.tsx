@@ -1,23 +1,11 @@
-import { useState, useCallback } from "react";
+import { useContext } from "react";
+import { ModeContext } from "../../context";
 
 const DarkModeToggle = () => {
-  // check if dark mode is enabled from user's browser
-  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const [darkMode, setDarkMode] = useState(isDarkMode);
-
-  const handleModeToggle = useCallback(() => {
-    setDarkMode(prev => !prev);
-    if (darkMode) {
-      document.documentElement.classList.remove("dark");
-    } else {
-      document.documentElement.classList.add("dark");
-    }
-    navigator?.vibrate(100);
-  }, [darkMode]);
+  const { darkMode, toggleDarkMode } = useContext(ModeContext);
 
   return (
-    <button className="ml-auto mr-2 hover:animate-pulse sm:ml-0" onClick={handleModeToggle}>
+    <button className="ml-auto mr-2 hover:animate-pulse sm:ml-0" onClick={toggleDarkMode}>
       {darkMode ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +13,7 @@ const DarkModeToggle = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="h-6 w-6 stroke-zinc-600 transition duration-100 ease-in-out hover:scale-125 dark:stroke-white"
+          className="h-6 w-6 stroke-zinc-700 transition duration-100 ease-in-out hover:scale-125 dark:stroke-white"
           role="img"
         >
           <title>Toggle button to swicth to light mode</title>
@@ -42,7 +30,7 @@ const DarkModeToggle = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="h-6 w-6 stroke-zinc-600 transition duration-100 ease-in-out hover:scale-125 dark:stroke-white"
+          className="h-6 w-6 stroke-zinc-700 transition duration-100 ease-in-out hover:scale-125 dark:stroke-white"
           role="img"
         >
           <title>Toggle button to swicth to dark mode</title>
