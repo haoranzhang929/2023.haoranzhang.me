@@ -1,0 +1,34 @@
+{
+  "glyphs": {
+    "皓": {
+      "ha": 1162,
+      "x_min": 34,
+      "x_max": 1128,
+      "o": "m 741 896 l 840 896 l 840 766 q 877 730 840 730 l 1076 730 l 1076 631 l 871 631 q 842 609 850 631 q 840 598 840 605 l 840 503 q 859 472 840 481 q 874 469 867 469 l 1128 469 l 1128 370 l 452 370 l 452 469 l 707 469 q 740 493 731 469 q 741 503 741 498 l 741 598 q 720 629 741 620 q 709 631 713 631 l 614 631 q 578 595 590 631 l 540 519 q 450 559 452 559 q 511 687 450 562 l 601 869 l 692 828 q 654 748 654 752 l 654 745 q 672 730 654 732 l 704 730 q 738 750 730 730 q 741 764 741 755 l 741 896 m 237 810 l 300 734 q 214 659 218 663 l 213 654 l 213 649 q 227 636 213 638 l 355 636 q 412 598 394 636 q 418 566 418 587 l 418 85 q 387 22 418 39 q 351 13 374 13 l 34 13 l 34 637 q 152 738 38 640 l 237 810 m 134 505 l 134 407 q 154 376 134 385 q 164 375 160 375 l 262 375 q 264 373 264 374 l 264 276 q 262 274 264 274 l 163 274 q 134 251 142 274 q 134 243 134 248 l 134 113 l 288 113 q 317 138 308 113 l 317 506 q 292 535 317 527 l 161 535 q 134 512 143 535 q 134 505 134 509 m 592 316 l 989 316 q 1060 267 1037 316 q 1065 243 1065 254 l 1065 11 q 1030 -49 1065 -22 q 989 -61 1010 -61 l 515 -61 l 515 243 q 551 304 515 277 q 592 316 570 316 m 616 184 l 616 39 l 932 39 q 962 56 953 39 q 965 70 965 62 l 965 184 q 942 215 965 206 q 930 216 935 216 l 651 216 q 617 195 625 216 q 616 184 616 189 z "
+    }
+  },
+  "familyName": "198-SSDaiDaiTi",
+  "ascender": 1111,
+  "descender": -277,
+  "underlinePosition": -208,
+  "underlineThickness": 69,
+  "boundingBox": { "yMin": -354, "xMin": -31, "yMax": 1109, "xMax": 1316 },
+  "resolution": 1000,
+  "original_font_information": {
+    "format": 0,
+    "copyright": "(c) Copyright Sichuan SounSo Brand Poanning Co.,Ltd",
+    "fontFamily": "198-SSDaiDaiTi",
+    "fontSubfamily": "Regular",
+    "uniqueID": "198-SSDaiDaiTi:Version 4.00",
+    "fullName": "198-SSDaiDaiTi",
+    "version": "Version 4.00 November 12, 2022",
+    "postScriptName": "198-SSDaiDaiTi",
+    "trademark": "198-SSDaiDaiTi is a trademark of SOUNSO Brand Poanning Co.,Ltd",
+    "manufacturer": "sounso fonts",
+    "manufacturerURL": "https.www.ssfonts.com",
+    "licence": "Please visit https.www.ssfonts.com for license information.",
+    "licenceURL": "https.www.ssfonts.com"
+  },
+  "cssFontWeight": "normal",
+  "cssFontStyle": "normal"
+}
