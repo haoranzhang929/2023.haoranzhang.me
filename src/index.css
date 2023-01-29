@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app-container {
+  @apply container mx-auto px-2 pt-4 md:px-0;
+}
