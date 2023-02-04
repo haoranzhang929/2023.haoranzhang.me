@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ROUTES } from "../../constants";
 import DarkModeToggle from "../DarkModeToggle";
 
 const Header = () => {
+  const { pathname } = useLocation();
   return (
     <header className="flex h-16 w-full justify-center gap-x-4 text-zinc-700 dark:text-white sm:gap-x-16 lg:gap-x-36">
       <div className="flex">
@@ -44,10 +45,18 @@ c175 0 249 3 249 11 0 27 -34 138 -60 195 -100 221 -280 381 -520 461 l-85 28
       </div>
       <nav>
         <ul className="my-auto flex h-full gap-x-2 lg:gap-x-10">
-          <li className="my-auto text-xl">
+          <li
+            className={`my-auto text-xl hover:text-zinc-500 ${
+              pathname == ROUTES.HOME ? "underline" : ""
+            }`}
+          >
             <Link to={ROUTES.HOME}>Home</Link>
           </li>
-          <li className="my-auto text-xl">
+          <li
+            className={`my-auto text-xl hover:text-zinc-500 ${
+              pathname == ROUTES.PROJECTS ? "underline" : ""
+            }`}
+          >
             <Link to={ROUTES.PROJECTS}>Projects</Link>
           </li>
         </ul>

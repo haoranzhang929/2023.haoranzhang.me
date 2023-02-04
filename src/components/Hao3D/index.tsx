@@ -1,9 +1,10 @@
-import { Suspense, useContext, useRef } from "react";
+import { Suspense, useContext, useRef, useEffect, useState } from "react";
 import { Canvas, extend, Object3DNode, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 import { BufferGeometry, Material, Mesh, TextureLoader } from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { isMobile } from "react-device-detect";
 
 import { ModeContext } from "../../context";
 
@@ -36,7 +37,9 @@ const Controls = () => {
 };
 
 const HaoText = () => {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const { darkMode } = useContext(ModeContext);
+  const { camera } = useThree();
   const meshRef = useRef<Mesh<BufferGeometry, Material | Material[]>>(null);
 
   const font = useLoader(FontLoader, TEXT_JSON);
@@ -45,11 +48,33 @@ const HaoText = () => {
     MAT_CAP_MATERIAL_DARK
   ]);
 
-  // useFrame(() => {
-  //   if (meshRef.current) {
-  //     meshRef.current.rotation.y += 0.01;
-  //   }
-  // });
+  useFrame(() => {
+    if (meshRef.current) {
+      if (isMobile) {
+        // rotate the text
+        meshRef.current.rotation.y += 0.005;
+      } else {
+        camera.position.x = mousePos.x;
+        camera.position.y = mousePos.y;
+        camera.lookAt(meshRef.current.position);
+      }
+    }
+  });
+
+  useEffect(() => {
+    // add mouse event listener if not on mobile
+    const onMouseMove = (event: MouseEvent) => {
+      const { innerWidth: width, innerHeight: height } = window;
+      setMousePos({
+        x: -(event.clientX - width / 2) / 400,
+        y: -(height - event.clientY - height / 2) / 400
+      });
+    };
+    !isMobile && window.addEventListener("mousemove", onMouseMove);
+    return () => {
+      !isMobile && window.removeEventListener("mousemove", onMouseMove);
+    };
+  });
 
   return (
     <Suspense fallback={null}>
@@ -60,7 +85,7 @@ const HaoText = () => {
             {
               font,
               size: 4.5,
-              height: 0.3,
+              height: 0.5,
               curveSegments: 6,
               bevelEnabled: true,
               bevelThickness: 0.01,
@@ -79,11 +104,20 @@ const HaoText = () => {
 
 const Hao = () => {
   return (
-    <div className="h-96 w-96">
-      <Canvas>
-        <HaoText />
-        <Controls />
-      </Canvas>
+    <div className="flex h-96 w-full flex-col justify-around md:flex-row md:justify-between">
+      <div className="h-96 w-full md:h-auto md:w-1/2">
+        <Canvas>
+          <HaoText />
+          {isMobile && <Controls />}
+        </Canvas>
+      </div>
+      <div className="flex w-full items-center justify-center md:w-1/2 ">
+        <div className="text-center sm:text-left">
+          <p className="mt-auto text-2xl">Hao is a fullstack software engineer</p>
+          <p className="my-3 text-2xl">based in Dublin, Ireland 🇮🇪</p>
+          <p className="text-2xl">Code 💻 & Music 🎸 are my passions</p>
+        </div>
+      </div>
     </div>
   );
 };
